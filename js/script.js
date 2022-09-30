@@ -12,12 +12,12 @@ inputUah.addEventListener('input', () => {
     request.send();
 
     request.addEventListener('load', () => {
-        if (request.readyState === 4 && request.status === 200) {
+        if (request.status === 200) {
             console.log(request.response);
             const data = JSON.parse(request.response);
             inputUsd.value = (+inputUah.value / data.current.usd).toFixed(2);
         } else {
-            inputUsd.value = "чтото пошло не так :(";
+            inputUsd.value = "что-то пошло не так";
         }
     });
 
